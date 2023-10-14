@@ -31,4 +31,5 @@ urlpatterns = [
             "movies.urls",
         ),
     ),
+    path("api/", include("movies_orders.urls")),
 ]
