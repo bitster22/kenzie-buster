@@ -26,3 +26,11 @@ class UserSerializer(serializers.Serializer):
         else:
             user = User.objects.create_user(**validated_data)
         return user
+
+    def update(self, instance: User, validated_data: dict):
+        for key, value in validated_data.items():
+            setattr(instance, key, value)
+        instance.set_password(instance.password)
+        instance.save()
+
+        return instance
