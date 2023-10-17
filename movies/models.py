@@ -17,7 +17,7 @@ class Movie(models.Model):
     )
     synopsis = models.TextField(blank=True, default="")
     user = models.ForeignKey(
-        "users.User", on_delete=models.CASCADE, related_name="movies", null=True
+        "users.User", on_delete=models.CASCADE, related_name="movies"
     )
     orders = models.ManyToManyField(
         "users.User", related_name="movies_orders", through="movies_orders.MovieOrder"
